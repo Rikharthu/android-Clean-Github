@@ -1,7 +1,7 @@
 package com.example.domain.executors.impl;
 
 import com.example.domain.executors.Executor;
-import com.example.domain.interactors.base.AbstractInteractor;
+import com.example.domain.interactors.base.UseCase;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -51,16 +51,8 @@ public class ThreadExecutor implements Executor {
     }
 
     @Override
-    public void execute(final AbstractInteractor interactor) {
-        mThreadPoolExecutor.submit(new Runnable() {
-            @Override
-            public void run() {
-                // run the main logic
-                interactor.run();
-                // mark it as finished
-                interactor.onFinished();
-            }
-        });
+    public void execute(Runnable runnable) {
+        mThreadPoolExecutor.submit(runnable);
     }
 
     private static class BackgroundThreadFactory implements ThreadFactory {

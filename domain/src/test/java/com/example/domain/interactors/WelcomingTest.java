@@ -2,7 +2,7 @@ package com.example.domain.interactors;
 
 import com.example.domain.executors.Executor;
 import com.example.domain.executors.MainThread;
-import com.example.domain.interactors.impl.WelcomingInteractorImpl;
+import com.example.domain.interactors.impl.WelcomingUseCaseImpl;
 import com.example.domain.model.Message;
 import com.example.domain.repository.MessageRepository;
 import com.example.domain.threading.TestMainThread;
@@ -39,7 +39,7 @@ public class WelcomingTest {
 
         when(mMessageRepository.getAllMessages()).thenReturn(Arrays.asList(message));
 
-        WelcomingInteractorImpl interactor = new WelcomingInteractorImpl(
+        WelcomingUseCaseImpl interactor = new WelcomingUseCaseImpl(
                 mExecutor,
                 mMainThread,
                 mMockedCallback,
@@ -61,7 +61,7 @@ public class WelcomingTest {
 
         when(mMessageRepository.getAllMessages()).thenReturn(Arrays.asList(message));
 
-        WelcomingInteractorImpl interactor = new WelcomingInteractorImpl(
+        WelcomingUseCaseImpl interactor = new WelcomingUseCaseImpl(
                 mExecutor,
                 mMainThread,
                 mMockedCallback,

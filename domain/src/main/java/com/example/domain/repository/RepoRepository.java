@@ -4,8 +4,10 @@ import com.example.domain.model.Repo;
 
 import java.util.List;
 
-public interface RepoRepository extends Repository<Repo> {
-    List<Repo> getAllRepos();
+import io.reactivex.Observable;
 
-    List<Repo> getUserRepos(String login);
+public interface RepoRepository extends Repository<Repo> {
+    Observable<List<Repo>> getAllRepos();
+
+    Observable<List<Repo>> getUserRepos(String login);
 }

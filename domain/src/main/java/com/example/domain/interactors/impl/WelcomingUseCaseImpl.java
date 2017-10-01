@@ -3,17 +3,17 @@ package com.example.domain.interactors.impl;
 import com.example.domain.executors.Executor;
 import com.example.domain.executors.MainThread;
 import com.example.domain.interactors.WelcomingInteractor;
-import com.example.domain.interactors.base.AbstractInteractor;
+import com.example.domain.interactors.base.UseCase;
 import com.example.domain.repository.MessageRepository;
 
-// Extends the AbstractInteractor since it takes care of runninag on the background thread
-public class WelcomingInteractorImpl extends AbstractInteractor implements WelcomingInteractor {
+// Extends the UseCase since it takes care of runninag on the background thread
+public class WelcomingUseCaseImpl extends UseCase implements WelcomingInteractor {
 
     private MessageRepository mMessageRepository;
     private Callback mCallback;
 
 
-    public WelcomingInteractorImpl(Executor threadExecutor, MainThread mainThread, Callback callback, MessageRepository repository) {
+    public WelcomingUseCaseImpl(Executor threadExecutor, MainThread mainThread, Callback callback, MessageRepository repository) {
         super(threadExecutor, mainThread);
         mMessageRepository = repository;
         mCallback = callback;
